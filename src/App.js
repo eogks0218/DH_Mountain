@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import SearchMountainPage from './components/pages/SearchMountainPage';
+import MountainListPage from './components/pages/MountainListPage';
+import Main from './components/pages/Main';
+import MountainInfoPage from './components/pages/MountainInfoPage';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path='/' element={<Main />} />
+        <Route path='/SearchMountainPage' element={<SearchMountainPage />} />
+        <Route path='/MountainListPage/:pageNo' element={<MountainListPage />} />
+        <Route path='/MountainListPage/:pageNo/:searchName' element={<MountainListPage />} />
+        <Route path='/MountainInfoPage/:pageNo/:mountainId' element={<MountainInfoPage />} />
+        <Route path='/MountainInfoPage/:pageNo/:searchName/:mountainId' element={<MountainInfoPage />} />
+      </Routes>
     </div>
   );
 }

@@ -1,0 +1,98 @@
+.MountainInfo-container{
+    margin: 100px auto;
+    margin-bottom: 150px;
+    width: 80%;
+    max-width: 800px;
+    min-width: 500px;
+    .post-module{
+        position: relative;
+        z-index: 1;
+        display: block;
+        background: #FFFFFF;
+        min-width: 270px;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
+        transition: all .3s linear 0s;
+        &:hover{
+            box-shadow: 0 1px 35px 0px rgba(0, 0, 0, .3);
+        }
+        &:hover .thumbnail > div{
+            transform: scale(1.1);
+            opacity: .6;
+        }
+    }
+    .thumbnail{
+        background: #000000;
+        height: 300px;
+        overflow: hidden;
+        > div{
+            display: block;
+            width: 120%;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            transition: all .3s linear 0s;
+        }
+    }
+    .post-content{
+        position: relative;
+        background: #FFF;
+        width: 100%;
+        padding: 30px;
+        transition: all .3s cubic-bezier(.37, .75, .61, 1.05) 0s;
+        .mntninfohght{
+            position: absolute;
+            top: -39px;
+            left: 0;
+            background: #E74C3C;
+            padding: 10px 15px;
+            color: #FFF;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .mntnnm{
+            margin: 0;
+            padding: 0 0 10px;
+            color: #333333;
+            font-size: 26px;
+            font-weight: 700;
+        }
+        .mntnsbttlinfo{
+            margin: 0;
+            padding: 0 0 20px;
+            color: #E74C3C;
+            font-size: 20px;
+            font-weight: 400;
+        }
+        .description{
+            color: #666666;
+            font-size: 14px;
+            line-height: 1.8em;
+        }
+    }
+}
+@media (max-width: 768px){
+    .MountainInfo-container{
+        min-width: auto !important;
+    }
+    .MountainInfo-container .thumbnail{
+        height: auto;
+    }
+    .MountainInfo-container .thumbnail > div{
+        height: 150px;
+    }
+    .MountainInfo-container .post-content .mntninfohght{
+        font-size: 10px;
+        padding: 5px 10px;
+        top: -24px;
+    }
+    .MountainInfo-container .post-content .mntnnm{
+        font-size: 16px;
+    }
+    .MountainInfo-container .post-content .mntnsbttlinfo{
+        font-size: 12px;
+    }
+    .MountainInfo-container .post-content .description{
+        font-size: 10px;
+    }
+}
