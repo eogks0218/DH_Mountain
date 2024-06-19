@@ -1,19 +1,19 @@
-name: Environment Variable - Secrets
+name: CD
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [master]
 
 jobs:
-  secrets-test:
-    runs-on: ubuntu-latest
-
+  build:
+    runs-on: self-hosted
     steps:
-      - name: Checkout 코드
-        uses: actions/checkout@v2
+      # Pull Repo
+      - uses: actions/checkout@v3
 
-      - name: Secrets 접근 및 환경 변수 설정
-        env:
-          REACT_APP_MOUNTAIN_KEY: ${{ secrets.REACT_APP_MOUNTAIN_KEY }}
-        run: |
-          echo "REACT_APP_MOUNTAIN_KEY=$REACT_APP_MOUNTAIN_KEY"
-          echo "REACT_APP_MOUNTAIN_KEY=$REACT_APP_MOUNTAIN_KEY" >> .env.production
+      # Github Secrets에서 API Key 받아온 후 .env 파일에 추가
+      - run: |
+          echo "REACT_APP_MOUNTAIN_KEY=${{secrets.REACT_APP_MOUNTAIN_KEY}}" >> .env
+      - run: cat .env
+      - run: npm install
+      - run: npm run build
