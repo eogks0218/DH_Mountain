@@ -7,6 +7,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Access Secrets
+      - name: Checkout 코드
+        uses: actions/checkout@v2
+
+      - name: Secrets 접근
+        env:
+          REACT_APP_MOUNTAIN_KEY: ${{ secrets.REACT_APP_MOUNTAIN_KEY }}
         run: |
-          echo "REACT_APP_MOUNTAIN_KEY : ${{ secrets.REACT_APP_MOUNTAIN_KEY }}"
+          echo "REACT_APP_MOUNTAIN_KEY=$REACT_APP_MOUNTAIN_KEY"
+          echo "REACT_APP_MOUNTAIN_KEY=$REACT_APP_MOUNTAIN_KEY" >> .env.production
