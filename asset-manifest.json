@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/DH_Mountain/static/css/main.b490d27d.css",
-    "main.js": "/DH_Mountain/static/js/main.bb75596f.js",
+    "main.js": "/DH_Mountain/static/js/main.10232704.js",
     "static/js/453.9f3732a5.chunk.js": "/DH_Mountain/static/js/453.9f3732a5.chunk.js",
     "index.html": "/DH_Mountain/index.html",
     "main.b490d27d.css.map": "/DH_Mountain/static/css/main.b490d27d.css.map",
-    "main.bb75596f.js.map": "/DH_Mountain/static/js/main.bb75596f.js.map",
+    "main.10232704.js.map": "/DH_Mountain/static/js/main.10232704.js.map",
     "453.9f3732a5.chunk.js.map": "/DH_Mountain/static/js/453.9f3732a5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b490d27d.css",
-    "static/js/main.bb75596f.js"
+    "static/js/main.10232704.js"
   ]
 }
