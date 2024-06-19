@@ -26,7 +26,12 @@ jobs:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
         run: npm run build
 
+      - name: Configure Git
+        run: |
+          git config --global user.email "your-email@example.com"
+          git config --global user.name "Your Name"
+
       - name: Deploy to GitHub Pages
-        run: npm run deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run deploy
