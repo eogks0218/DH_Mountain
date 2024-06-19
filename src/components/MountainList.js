@@ -14,8 +14,6 @@ export default function MountainList({pageNo, searchName}){
         return <div>No mountain data available.</div>;
     }
 
-    console.log(sliceMountainList)
-
     return(
         <div className="MountainList-container">
             { sliceMountainList.length ? 

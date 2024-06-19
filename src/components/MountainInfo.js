@@ -1,9 +1,11 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import "../scss/MountainInfo.scss";
+import React from 'react';
+import { useSelector } from 'react-redux';
+// import KakaoMap from './common/KakaoMap';
+import Weather from './common/Weather';
+import '../scss/MountainInfo.scss';
 
 export default function MountainInfo() {
-    const select_mountain = useSelector(state => state.mountain.selectMountain);
+    const select_mountain = useSelector((state) => state.mountain.selectMountain);
 
     return (
         select_mountain && (
@@ -11,7 +13,7 @@ export default function MountainInfo() {
                 <div className="column">
                     <div className="post-module">
                         <div className="thumbnail">
-                            <div className="imgDiv" style={{backgroundImage:`url(${select_mountain.mntnattchimageseq})`}}/>
+                            <div className="imgDiv" style={{ backgroundImage: `url(${select_mountain.mntnattchimageseq})` }} />
                         </div>
                         <div className="post-content">
                             <div className="mntninfohght">{select_mountain.mntninfohght}m</div>
@@ -26,6 +28,14 @@ export default function MountainInfo() {
                                 ))}
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div className="column2">
+                    <div className="address">
+                        <h1>{select_mountain.mntninfopoflc}</h1>
+                    </div>
+                    <div className='weather'>
+                        <Weather />
                     </div>
                 </div>
             </div>

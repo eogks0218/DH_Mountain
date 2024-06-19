@@ -7,7 +7,7 @@ export default function Pagination(props) {
     const { totalItems } = props;
     const itemCountPerPage = 10;
     const pageCount = 10;
-    const { pageNo } = useParams();
+    const { pageNo, searchName } = useParams();
     const currentPage = parseInt(pageNo);
     const navigate = useNavigate();
 
@@ -50,8 +50,13 @@ export default function Pagination(props) {
     }, [pageValue, totalPages])
 
     const movePage = () => {
-        navigate(`/MountainListPage/${pageValue}`)
-        setPageValue("")
+        if(searchName){
+            navigate(`/MountainListPage/${pageValue}/${searchName}`)
+            setPageValue("")
+        }else{
+            navigate(`/MountainListPage/${pageValue}`)
+            setPageValue("")
+        }
     }
 
     const movePageEnter = (e) => {
@@ -64,24 +69,35 @@ export default function Pagination(props) {
         <div className="Pagination-container">
             <ul>
                 <li className={`move ${noPrevious && "invisible"}`}>
-                    <Link to={`/MountainListPage/${start - 1}`}>Previous</Link>
+                    {
+                        searchName ?
+                            <Link to={`/MountainListPage/${start - 1}/${searchName}`}>Previous</Link> :
+                            <Link to={`/MountainListPage/${start - 1}`}>Previous</Link> 
+                    }
                 </li>
                 {[...Array(pageCount)].map((item, index) => (
                     <>
                         {start + index <= totalPages && (
                             <li key={index}>
-                                <Link
-                                    className={`page ${currentPage === start + index && "active"}`}
-                                    to={`/MountainListPage/${start + index}`}
-                                >
-                                    {start + index}
-                                </Link>
+                                {
+                                    searchName ?
+                                        <Link className={`page ${currentPage === start + index && "active"}`} to={`/MountainListPage/${start + index}/${searchName}`}>
+                                            {start + index}
+                                        </Link> :
+                                        <Link className={`page ${currentPage === start + index && "active"}`} to={`/MountainListPage/${start + index}`}>
+                                            {start + index}
+                                        </Link>
+                                }
                             </li>
                         )}
                     </>
                 ))}
                 <li className={`move ${noNext && "invisible"}`}>
-                    <Link to={`/MountainListPage/${start + pageCount}`}>Next</Link>
+                    {
+                        searchName?
+                            <Link to={`/MountainListPage/${start + pageCount}/${searchName}`}>Next</Link> :
+                            <Link to={`/MountainListPage/${start + pageCount}`}>Next</Link>
+                    }
                 </li>
             </ul>
             {
