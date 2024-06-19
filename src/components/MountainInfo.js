@@ -30,6 +30,7 @@ export default function MountainInfo() {
                         </div>
                     </div>
                 </div>
+                <hr />
                 <div className="column2">
                     <div className="address">
                         <h1>{select_mountain.mntninfopoflc}</h1>
