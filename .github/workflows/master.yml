@@ -1,6 +1,7 @@
 name: Environment Variable - Secrets
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 
 jobs:
   secrets-test:
@@ -10,7 +11,7 @@ jobs:
       - name: Checkout 코드
         uses: actions/checkout@v2
 
-      - name: Secrets 접근
+      - name: Secrets 접근 및 환경 변수 설정
         env:
           REACT_APP_MOUNTAIN_KEY: ${{ secrets.REACT_APP_MOUNTAIN_KEY }}
         run: |
