@@ -1,6 +1,8 @@
 import { start_loading, finish_loading } from "./loading";
 import axios from "axios";
 
+const decodedServiceKey = decodeURIComponent(process.env.REACT_APP_MOUNTAIN_KEY);
+
 const MOUNTAIN_LIST_SUCCESS = 'mountain/MOUNTAIN_LIST_SUCCESS'
 const MOUNTAIN_LIST_FAILED = 'mountain/MOUNTAIN_LIST_FAILED'
 
@@ -15,7 +17,7 @@ const SELECTED_MOUNTAIN = 'mountain/SELECTED_MOUNTAIN'
 export const mountain_list = (pageNo) => async dispatch => {
     dispatch(start_loading());
     try{
-        const decodedServiceKey = decodeURIComponent(process.env.REACT_APP_API_KEY);
+        // const decodedServiceKey = decodeURIComponent(process.env.REACT_APP_API_KEY);
         const res = await axios.get("http://openapi.forest.go.kr/openapi/service/trailInfoService/getforeststoryservice", {
             params: {
                 serviceKey: decodedServiceKey,
@@ -35,7 +37,7 @@ export const mountain_list = (pageNo) => async dispatch => {
 export const total_mountain = () => async dispatch => {
     dispatch(start_loading());
     try{
-        const decodedServiceKey = decodeURIComponent(process.env.REACT_APP_API_KEY);
+        // const decodedServiceKey = decodeURIComponent(process.env.REACT_APP_API_KEY);
         const res = await axios.get("http://openapi.forest.go.kr/openapi/service/trailInfoService/getforeststoryservice", {
             params: {
                 serviceKey: decodedServiceKey
@@ -54,7 +56,7 @@ export const total_mountain = () => async dispatch => {
 export const search_mountain = (mountainName) => async dispatch => {
     dispatch(start_loading());
     try{
-        const decodedServiceKey = decodeURIComponent(process.env.REACT_APP_API_KEY);
+        // const decodedServiceKey = decodeURIComponent(process.env.REACT_APP_API_KEY);
         const res = await axios.get("http://openapi.forest.go.kr/openapi/service/trailInfoService/getforeststoryservice", {
             params: {
                 mntnNm: mountainName,
