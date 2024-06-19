@@ -1,32 +1,12 @@
-name: Deploy to GitHub Pages
+name: Environment Variable - Secrets
 
-on:
-  push:
-    branches:
-      - master
+on: workflow_dispatch
 
 jobs:
-  build:
+  secrets-test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build the project
-        env:
-          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
-        run: npm run build
-
-      - name: Deploy to GitHub Pages
-        run: npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Access Secrets
+        run: |
+          echo "REACT_APP_MOUNTAIN_KEY : ${{ secrets.REACT_APP_MOUNTAIN_KEY }}"
