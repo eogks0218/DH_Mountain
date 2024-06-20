@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/DH_Mountain/static/css/main.74b0abde.css",
-    "main.js": "/DH_Mountain/static/js/main.c9ad860a.js",
+    "main.css": "/DH_Mountain/static/css/main.67b76875.css",
+    "main.js": "/DH_Mountain/static/js/main.e33e7032.js",
     "static/js/453.9f3732a5.chunk.js": "/DH_Mountain/static/js/453.9f3732a5.chunk.js",
+    "static/media/MangoDdobak-R(otf).otf": "/DH_Mountain/static/media/MangoDdobak-R(otf).2a71a6ea5f61bc9c964b.otf",
     "index.html": "/DH_Mountain/index.html",
-    "main.74b0abde.css.map": "/DH_Mountain/static/css/main.74b0abde.css.map",
-    "main.c9ad860a.js.map": "/DH_Mountain/static/js/main.c9ad860a.js.map",
+    "main.67b76875.css.map": "/DH_Mountain/static/css/main.67b76875.css.map",
+    "main.e33e7032.js.map": "/DH_Mountain/static/js/main.e33e7032.js.map",
     "453.9f3732a5.chunk.js.map": "/DH_Mountain/static/js/453.9f3732a5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.74b0abde.css",
-    "static/js/main.c9ad860a.js"
+    "static/css/main.67b76875.css",
+    "static/js/main.e33e7032.js"
   ]
 }
