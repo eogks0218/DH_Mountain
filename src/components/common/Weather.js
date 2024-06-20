@@ -101,7 +101,6 @@ export default function Weather() {
                 <div className="weatherData">
                     <h1 className="temperature">25˚</h1>
                     <h2 className="description">부분적으로 흐림</h2>
-                    <h3 className="city">전라북도 남원시</h3>
                 </div>
                 <div className="date">
                     <h4 className="month">{monthNames[currentDate.getMonth()]}</h4>

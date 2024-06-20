@@ -17,7 +17,7 @@ export default function Header(){
                             <Link to="/MountainListPage/1" className="menu-link">List</Link>
                         </li>
                         <li className="menu-item">
-                            <Link to="/" className="menu-link">Recommend</Link>
+                            <Link to="/FamousMountainPage" className="menu-link">Famous Mountains</Link>
                         </li>
                     </ul>
                 </nav>

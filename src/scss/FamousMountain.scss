@@ -1,0 +1,107 @@
+.FamousMountain-container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    .tab {
+        padding: 50px;
+        position: relative;
+        overflow: hidden;
+        background: inherit;
+        border-radius: 10px;
+        width: 80%;
+        margin: 0 auto;
+        font-family: "Mango", sans-serif;
+        line-height: 1.5;
+        font-weight: bold;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
+        color: #888;
+        .tabs {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            width: 100%;
+            z-index: 2;
+            li {
+                line-height: 38px;
+                overflow: hidden;
+                padding: 0;
+                position: relative;
+                list-style: none;
+                width: 33%;
+                a {
+                    background-color: #EFF0F2;
+                    border-bottom: 1px solid #FFF;
+                    color: #888;
+                    font-weight: bold;
+                    display: block;
+                    letter-spacing: 0;
+                    outline: none;
+                    padding: 0 20px;
+                    text-decoration: none;
+                    transition: all 0.2s ease-in-out;
+                    border-bottom: 2px solid blue;
+                }
+            }
+        }
+        .tabs_item {
+            display: none;
+            padding: 30px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-in-out;
+            z-index: 1;
+            &.active {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                animation: fadeInUp 1s forwards;
+                p{
+                    width: 100%;
+                    padding: 20px;
+                    border-bottom: 1px dotted blue;
+                }
+            }
+            &.fade {
+                animation: fadeOutUp 1s forwards;
+            }
+        }
+        .current a {
+            color: #FFF !important;
+            background-color: blue !important;
+        }
+    }
+
+    @keyframes fadeOutUp {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+    }
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .FamousMountain-container .tab{
+        padding: 20px;
+    }
+    .FamousMountain-container .tab .tabs li a{
+        font-size: 13px;
+    }
+}

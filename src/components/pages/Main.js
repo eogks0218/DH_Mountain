@@ -102,7 +102,7 @@ export default function Main() {
                             <Link to="/MountainListPage/1" dataContent="산 목록보기">LIST OF MOUNTAIN</Link>
                         </li>
                         <li>
-                            <Link to="#" dataContent="추천하는 산">RECOMMENDED MOUNTAIN</Link>
+                            <Link to="/FamousMountainPage" dataContent="대한민국 100대 명산">Korea's Top 100 Famous Mountains</Link>
                         </li>
                     </ul>
                 </nav>

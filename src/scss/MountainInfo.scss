@@ -1,118 +1,246 @@
-.MountainInfo-container{
-    margin: 100px auto;
-    margin-bottom: 150px;
-    width: 80%;
-    max-width: 800px;
-    min-width: 500px;
-    .post-module{
-        position: relative;
-        z-index: 1;
-        display: block;
-        background: #FFFFFF;
-        min-width: 270px;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
-        transition: all .3s linear 0s;
-        &:hover{
-            box-shadow: 0 1px 35px 0px rgba(0, 0, 0, .3);
-        }
-        &:hover .thumbnail > div{
-            transform: scale(1.1);
-            opacity: .6;
-        }
+/* Media Queries */
+
+@mixin mq-xs {
+    @media (min-width: 320px) {
+        @content;
     }
-    .thumbnail{
-        background: #000000;
-        height: 300px;
-        overflow: hidden;
-        > div{
-            display: block;
-            width: 120%;
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-            transition: all .3s linear 0s;
-        }
+}
+
+@mixin mq-sm {
+    @media (min-width: 480px) {
+        @content;
     }
-    .post-content{
+}
+
+@mixin mq-md {
+    @media (min-width: 720px) {
+        @content;
+    }
+}
+
+@mixin mq-lg {
+    @media (min-width: 150%) {
+        @content;
+    }
+}
+
+$background: #f7f7f7;
+$box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
+$border: 1px solid rgba(191, 191, 191, 0.4);
+$items: 7;
+$rows: ceil($items / 2);
+
+/* Card sizing */
+
+$card-height: 400px;
+$card-width: 450px;
+$inner-margin: 15px;
+$number-size: 35px;
+$stagger: 180px;
+$outer-margin: 90px;
+$marker-size: 9px;
+
+/* Colors */
+
+$steps: #46b8e9;
+$colors: #46b8e9, #3ee9d1, #ce43eb, #4d92eb;
+$timeline: #bdbdbd;
+
+/* Calculations */
+
+$container-height: $rows * ($card-height + $outer-margin) + $stagger;
+$container-width: $card-width * 2 + $outer-margin * 3;
+$head-height: $number-size + 50;
+$body-height: $card-height - $head-height;
+$marker-dist: $card-width + $outer-margin / 2 - $marker-size / 2;
+
+/* Placeholders */
+
+@include mq-lg {
+    %arrow {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+    }
+
+    %marker {
+        position: absolute;
+        content: "";
+        width: $marker-size;
+        height: $marker-size;
+        background-color: $timeline;
+        border-radius: $marker-size;
+        box-shadow: 0px 0px 2px 8px $background;
+    }
+}
+
+/* Border Box */
+
+* {
+    box-sizing: border-box;
+}
+
+/* Fonts */
+
+body {
+    font-family: "Mango";
+}
+
+#timeline {
+    padding: 100px 0;
+    background: $background;
+    h1 {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    p.leader {
+        text-align: center;
+        max-width: 90%;
+        margin: auto;
+        margin-bottom: 45px;
+    }
+    .demo-card-wrapper {
         position: relative;
-        background: #FFF;
-        width: 100%;
-        padding: 30px;
-        transition: all .3s cubic-bezier(.37, .75, .61, 1.05) 0s;
-        .mntninfohght{
+        margin: auto;
+        @include mq-lg {
+            display: flex;
+            flex-flow: column wrap;
+            width: $container-width;
+            height: $container-height;
+            margin: 0 auto;
+        }
+        &::after {
+            z-index: 1;
+            content: "";
             position: absolute;
-            top: -39px;
-            left: 0;
-            background: #E74C3C;
-            padding: 10px 15px;
-            color: #FFF;
-            font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-        .mntnnm{
-            margin: 0;
-            padding: 0 0 10px;
-            color: #333333;
-            font-size: 26px;
-            font-weight: 700;
-        }
-        .mntnsbttlinfo{
-            margin: 0;
-            padding: 0 0 20px;
-            color: #E74C3C;
-            font-size: 20px;
-            font-weight: 400;
-        }
-        .description{
-            color: #666666;
-            font-size: 14px;
-            line-height: 1.8em;
-        }
-    }
-    .column{
-        margin-bottom: 50px;
-    }
-    .column2{
-        margin-top: 50px;
-        .address{
-            margin: 0;
-            padding: 0 0 10px;
-            h1{
-                margin: 0 auto;
-                margin-bottom: 20px;
-                padding: 0;
-                color: #333333;
-                font-size: 18px;
-                font-weight: 700;
-                text-transform: uppercase;
-                line-height: 1.5;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            border-left: $border;
+            @include mq-lg {
+                border-left: 1px solid $timeline;
             }
         }
     }
-}
-@media (max-width: 768px){
-    .MountainInfo-container{
-        min-width: auto !important;
+    .demo-card {
+        position: relative;
+        display: block;
+        margin: 10px auto 80px;
+        z-index: 2;
+        width: 80%;
+        @include mq-sm {
+            box-shadow: $box-shadow;
+        }
+        @include mq-lg {
+            max-width: $card-width;
+            margin: $outer-margin;
+            margin-top: $outer-margin / 2;
+            margin-bottom: $outer-margin / 2;
+            &:nth-child(odd) {
+                margin-right: $outer-margin / 2;
+                .head::after {
+                    @extend %arrow;
+                    border-left-width: 15px;
+                    border-left-style: solid;
+                    left: 100%;
+                }
+                .head::before {
+                    @extend %marker;
+                    left: $marker-dist + 1;
+                }
+            }
+            &:nth-child(even) {
+                margin-left: $outer-margin / 2;
+                .head::after {
+                    @extend %arrow;
+                    border-right-width: 15px;
+                    border-right-style: solid;
+                    right: 100%;
+                }
+                .head::before {
+                    @extend %marker;
+                    right: $marker-dist - 1;
+                }
+            }
+            &:nth-child(2) {
+                margin-top: $stagger;
+            }
+        }
+        .head {
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            .number-box {
+                margin: 15px;
+                padding: 10px;
+                font-size: $number-size;
+                line-height: $number-size;
+                font-weight: 600;
+                background: rgba(0, 0, 0, 0.17);
+            }
+            h2 {
+                text-transform: uppercase;
+                font-size: 1.3rem;
+                font-weight: inherit;
+                letter-spacing: 2px;
+                margin: 0;
+                padding-bottom: 6px;
+                line-height: 1rem;
+                @include mq-sm {
+                    font-size: 165%;
+                    line-height: 1.2rem;
+                }
+                span {
+                    display: block;
+                    font-size: 0.6rem;
+                    margin: 0;
+                    @include mq-sm {
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+        .body {
+            background: #fff;
+            padding: 15px;
+            p {
+                font-size: 14px;
+                line-height: 18px;
+                margin-bottom: 15px;
+            }
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+                max-width: 600px;
+                margin: 20px auto;
+            }
+            a{
+                font-size: .7rem;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+        @for $i from 1 through $items {
+            &--step#{$i} {
+                $color: nth($colors, ((($i - 1) % 4) + 1));
+                background-color: $color;
+                .head::after {
+                    border-color: $color;
+                }
+            }
+        }
     }
-    .MountainInfo-container .thumbnail{
-        height: auto;
-    }
-    .MountainInfo-container .thumbnail > div{
-        height: 150px;
-    }
-    .MountainInfo-container .post-content .mntninfohght{
-        font-size: 10px;
-        padding: 5px 10px;
-        top: -24px;
-    }
-    .MountainInfo-container .post-content .mntnnm{
-        font-size: 16px;
-    }
-    .MountainInfo-container .post-content .mntnsbttlinfo{
-        font-size: 12px;
-    }
-    .MountainInfo-container .post-content .description{
-        font-size: 10px;
+    text-align: left !important;
+    @include mq-xs{
+        .demo-card-wrapper{
+            max-width: 800px;
+        }
     }
 }

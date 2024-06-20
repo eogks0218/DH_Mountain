@@ -5,12 +5,13 @@
         border-radius: 10px;
         box-shadow: 0 10px 10px rgba(0, 0, 0, .2);
         display: flex;
-        max-width: 100%;
+        max-width: 800px;
         margin: 20px auto;
         overflow: hidden;
         width: 80%;
         min-width: 570px;
         transition: all .5s ease-in-out;
+        font-family: "Mango";
         h6{
             opacity: .6;
             margin: 0;
@@ -76,6 +77,7 @@
                 right: 30px;
                 letter-spacing: 1px;
                 cursor: pointer;
+                font-family: "Mango";
                 &:hover{
                     background-color: #FFF;
                     color: #001F61;

@@ -4,6 +4,7 @@ import SearchMountainPage from './components/pages/SearchMountainPage';
 import MountainListPage from './components/pages/MountainListPage';
 import Main from './components/pages/Main';
 import MountainInfoPage from './components/pages/MountainInfoPage';
+import FamousMountainPage from './components/pages/FamousMountainPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/MountainListPage/:pageNo/:searchName' element={<MountainListPage />} />
         <Route path='/MountainInfoPage/:pageNo/:mountainId' element={<MountainInfoPage />} />
         <Route path='/MountainInfoPage/:pageNo/:searchName/:mountainId' element={<MountainInfoPage />} />
+        <Route path='/FamousMountainPage' element={<FamousMountainPage />} />
       </Routes>
     </div>
   );

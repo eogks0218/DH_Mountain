@@ -54,6 +54,7 @@
                 text-align: center;
                 font-size: .9rem;
                 opacity: 0;
+                font-family: 'Mango';
                 &::before{
                     content: '';
                     width: 70px;
@@ -85,6 +86,7 @@
                     font-weight: 300;
                     font-style: italic;
                     letter-spacing: 0;
+                    font-family: 'Mango';
                 }
                 &:hover:before{
                     transform: translateX(0);
@@ -158,34 +160,34 @@
         0% { background-color: #FFF; }
         50% { transform: translateY(9px); }
         80% { transform: translateY(5px); background-color: #FFF; }
-        100% { transform: translateY(0); background-color: #29363B; }
+        100% { transform: translateY(0); background-color: #FFF; }
     }
     @keyframes animate-bottom-bar{
         0% { background-color: #FFF; }
         50% { transform: translateY(-9px); }
         80% { transform: translateY(-5px); background-color: #FFF; }
-        100% { transform: translateY(0); background-color: #29363B ;}
+        100% { transform: translateY(0); background-color: #FFF ;}
     }
     @keyframes animate-middle-bar{
         0% { background-color: #FFF; }
         80% { background-color: #FFF; }
-        100% { background-color: #29363B; }
+        100% { background-color: #FFF; }
     }
     @keyframes animate-out-top-bar{
-        0% { background-color: #29363B; }
+        0% { background-color: #FFF; }
         50% { transform: translateY(9px); }
-        80% { transform: translateY(5px); background-color: #29363B; }
+        80% { transform: translateY(5px); background-color: #FFF; }
         100% { transform: translateY(0); background-color: #FFF; }
     }
     @keyframes animate-out-bottom-bar{
-        0% { background-color: #29363B; }
+        0% { background-color: #FFF; }
         50% { transform: translateY(-9px); }
-        80% { transform: translateY(-5px); background-color: #29363B; }
+        80% { transform: translateY(-5px); background-color: #FFF; }
         100% { transform: translateY(0); background-color: #FFF; }
     }
     @keyframes animate-out-middle-bar{
-        0% { background-color: #29363B; }
-        80% { background-color: #29363B; }
+        0% { background-color: #FFF; }
+        80% { background-color: #FFF; }
         100% { background-color: #FFF; }
     }
 
