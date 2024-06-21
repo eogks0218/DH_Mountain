@@ -65,6 +65,7 @@ export default function MountainListPage(){
             return;
         }else{
             dispatch(sample_mountain_list(pageNo))
+            setTotalCount(1336)
             return;
         }
     }, [dispatch, pageNo, searchName, searchTotalCount])

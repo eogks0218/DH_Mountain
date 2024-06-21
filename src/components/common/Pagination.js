@@ -17,6 +17,8 @@ export default function Pagination(props) {
     const [noNext, setNoNext] = useState(false);
     const [pageValue, setPageValue] = useState("");
 
+    console.log(totalItems)
+
     useEffect(() => {
         setNoPrevious(start === 1);
         setNoNext(start + pageCount > totalPages);
