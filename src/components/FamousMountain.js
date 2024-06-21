@@ -27,6 +27,7 @@ export default function FamousMountain() {
 
     return (
         <div className="FamousMountain-container">
+            <h1>대한민국 100대 명산 🗻 </h1>
             <div className="tab">
                 <ul className="tabs">
                     <li className={activeTab === 0 ? "current" : ""}>
