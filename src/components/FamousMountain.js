@@ -42,17 +42,17 @@ export default function FamousMountain() {
                 <div className="tab-content">
                     <div className={`tabs_item ${activeTab === 0 ? 'active' : ''} ${transition ? 'fade' : ''}`} style={{textAlign:"left"}}>
                         {FamousMountainList.slice(0, 29).map((item, index) => (
-                            <p key={index}>{item.mntnnm}</p>
+                            <p key={index}>{item.mntnnm}<Link to={`/MountainInfoPage/1/${item.mntnid}`}>🔎</Link></p>
                         ))}
                     </div>
                     <div className={`tabs_item ${activeTab === 1 ? 'active' : ''} ${transition ? 'fade' : ''}`} style={{textAlign:"center"}}>
                         {FamousMountainList.slice(29, 69).map((item, index) => (
-                            <p key={index}>{item.mntnnm}</p>
+                            <p key={index}>{item.mntnnm}<Link to={`/MountainInfoPage/1/${item.mntnid}`}>🔎</Link></p>
                         ))}
                     </div>
                     <div className={`tabs_item ${activeTab === 2 ? 'active' : ''} ${transition ? 'fade' : ''}`} style={{textAlign:"right"}}>
                         {FamousMountainList.slice(69).map((item, index) => (
-                            <p key={index}>{item.mntnnm}</p>
+                            <p key={index}>{item.mntnnm}<Link to={`/MountainInfoPage/1/${item.mntnid}`}>🔎</Link></p>
                         ))}
                     </div>
                 </div>

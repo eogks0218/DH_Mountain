@@ -77,17 +77,30 @@
 
 import React, { useEffect, useState } from 'react';
 import "../../scss/Weather.scss";
+import dayjs from 'dayjs';
 
-export default function Weather() {
-    const [currentDate, setCurrentDate] = useState(new Date());
+export default function Weather({ selectedDate }) {
+    const initialDate = selectedDate ? dayjs(selectedDate).toDate() : new Date();
+    const [currentDate, setCurrentDate] = useState(initialDate);
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentDate(new Date());
-        }, 60000); // Update date every minute
+        }, 60000); // 1분마다 현재 날짜로 업데이트
 
         return () => clearInterval(interval);
     }, []);
+
+    useEffect(() => {
+        if (selectedDate) {
+            setCurrentDate(dayjs(selectedDate).toDate());
+        }
+    }, [selectedDate]);
+
+    // currentDate가 Date 객체인지 확인하는 함수
+    const isValidDate = (date) => {
+        return date instanceof Date && !isNaN(date);
+    };
 
     const monthNames = [
         "January", "February", "March", "April", "May", "June",
@@ -103,8 +116,12 @@ export default function Weather() {
                     <h2 className="description">부분적으로 흐림</h2>
                 </div>
                 <div className="date">
-                    <h4 className="month">{monthNames[currentDate.getMonth()]}</h4>
-                    <h5 className="day">{currentDate.getDate()}</h5>
+                    {isValidDate(currentDate) && (
+                        <>
+                            <h4 className="month">{monthNames[currentDate.getMonth()]}</h4>
+                            <h5 className="day">{currentDate.getDate()}</h5>
+                        </>
+                    )}
                 </div>
             </article>
         </div>

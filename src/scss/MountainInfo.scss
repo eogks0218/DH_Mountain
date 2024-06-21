@@ -27,7 +27,7 @@
 $background: #f7f7f7;
 $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
 $border: 1px solid rgba(191, 191, 191, 0.4);
-$items: 7;
+$items: 8;
 $rows: ceil($items / 2);
 
 /* Card sizing */
@@ -90,7 +90,8 @@ body {
 }
 
 #timeline {
-    padding: 100px 0;
+    padding: 0;
+    padding-top: 100px;
     background: $background;
     h1 {
         text-align: center;
@@ -242,5 +243,46 @@ body {
         .demo-card-wrapper{
             max-width: 800px;
         }
+    }
+
+    animation: fadeinup 2s forwards;
+
+    @keyframes fadeinup {
+        from {
+            opacity: 0;
+            transform: translateY(200px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .DateButton{
+        position: absolute;
+        top: 35px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        border-left: 5px double #FFF;
+        padding-left: 10px;
+        svg{
+            position: relative;
+            top: 5px;
+            color: #000;
+        }
+    }
+}
+
+.demo-card--step8 .body p{
+    font-size: 17px !important;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    #timeline .demo-card .body a{
+        font-size: .5rem;
+    }
+    .demo-card--step8 .body p{
+        font-size: 14px !important;
     }
 }

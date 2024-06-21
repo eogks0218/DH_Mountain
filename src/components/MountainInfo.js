@@ -1,21 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 // import KakaoMap from './common/KakaoMap';
-// import Weather from './common/Weather';
+import Weather from './common/Weather';
 import '../scss/MountainInfo.scss';
 import { Link } from 'react-router-dom';
+import { HiCursorClick } from "react-icons/hi";
+import SelectDate from './common/SelectDate';
 
 function convertHtmlStringToText(htmlString) {
     return htmlString
         .replace(/&amp;nbsp;/g, ' ')
-        .replace(/&lt;br \/&gt;/g, '\n')
+        .replace(/&lt;br ?\/&gt;/g, '\n')
+        .replace(/<br ?\/?>/g, '\n')
+        .replace(/<p>/g, '')
+        .replace(/<\/p>/g, '')
+        .replace(/&gt;/g, '>')
+        .replace(/&amp;#160;/g, ' ')
         .replace(/<BR>/g, '\n')
-        .replace(/&gt/g, '>')
-        .replace(/&amp;#160;/g, ' ');
+        .replace(/<P>/g, '')
+        .replace(/<\/P>/g, '')
+        .replace(/&nbsp;/g, ' ')
 }
 
 export default function MountainInfo() {
     const select_mountain = useSelector((state) => state.mountain.selectMountain);
+
+    const [isSelectedDate, setIsSelectedDate] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(null);
+
+    const DateClick = () => {
+        setIsSelectedDate(true);
+    }
+
+    const handleCancel = () => {
+        setIsSelectedDate(false);
+    }
+
+    const handleDate = (newValue) => {
+        setSelectedDate(newValue)
+    }
 
     return (
         select_mountain && (
@@ -137,8 +160,27 @@ export default function MountainInfo() {
                                 </Link>
                             </div>
                         </div>
+                        <div className='demo-card demo-card--step8'>
+                            <div className='head'>
+                                <div className='number-box'>
+                                    <span>08</span>
+                                </div>
+                                <h2><span className='small'>Weather</span>날씨정보<p className='DateButton' onClick={DateClick}>📅<HiCursorClick /></p></h2>
+                            </div>
+                            <div className='body'>
+                                <p style={{textAlign:"center"}}>{select_mountain.mntninfopoflc}</p>
+                                <Weather selectedDate={selectedDate}/>
+                            </div>
+                        </div>
                     </div>
                 </section>
+                {
+                    isSelectedDate &&
+                        <SelectDate
+                            handleCancel={handleCancel}
+                            handleDate={handleDate}
+                        />
+                }
             </div>
         )
     );

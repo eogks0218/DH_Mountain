@@ -66,6 +66,10 @@ export default function MountainInfoPage(){
     useEffect(()=>{
         dispatch(selected_mountain(mountainId))
     }, [dispatch, mountainId])
+
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
     
     if(isLoading) return <><Loading /></>
 
